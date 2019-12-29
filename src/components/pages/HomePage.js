@@ -3,13 +3,28 @@ import PropTypes from 'prop-types'
 import { Link } from "react-router-dom"
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth'
+import { Button, Radio, Icon, Layout, Menu } from 'antd';
+
+const { Header, Content, Footer, Sider } = Layout;
+
+
+// submit = (data) => 
+//     this.props.login(data).then(() => this.props.history.push("/"));
 
 const HomePage = ( { isAuthenticated, logout }) => (
   <div>
-    <h1>Home Page</h1>
+    <h1 style= {{ height: 100, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>Welcome to CJJ Planner</h1>
+
     
-    {isAuthenticated ? <button onClick= {() => logout()}>Logout</button> : <Link to ="/login">Login</Link>}
+    <Link to ="/lifting">Lifting Calculator</Link> 
+    <div style= {{height:10}}> </div>
+    <Link to ="/gameplan">Game Plan Maker</Link>
+
+    <div style= {{height:100}}> </div> 
+    {isAuthenticated ? <Button type="primary" onClick= {() => logout()}>Logout</Button> : <Link to ="/login">Login</Link>}
+
   </div>
+  
 );
 
 HomePage.propTypes = {
@@ -20,7 +35,7 @@ HomePage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    isAuthenticated: !!state.user.token
+    isAuthenticated: !!state.user.token,
   }
 }
 

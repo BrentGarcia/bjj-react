@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import LoginForm from '../forms/LoginForm';
 import { login } from '../../actions/auth';
 
+
+
 class LoginPage extends React.Component {
 
   submit = (data) => 
@@ -19,14 +21,6 @@ class LoginPage extends React.Component {
     );
   }
 }
-
-// const LoginPage = () => (
-//   <div>
-//     <h1>Login Page</h1>
-
-//     <LoginForm submit= {this.submit} />
-//   </div>
-// );
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
